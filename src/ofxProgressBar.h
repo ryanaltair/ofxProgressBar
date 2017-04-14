@@ -26,7 +26,7 @@ public:
     void setFont(ofTrueTypeFont f);
     void setFontColor(ofColor c);
     void setLabelPosition(ofVec2f p);
-    
+    void setWidth(int _w);
     // Use these to set the progress and max of the bar
     // directly
     void setProgress(int p);

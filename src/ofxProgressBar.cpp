@@ -38,7 +38,9 @@ void ofxProgressBar::init(){
     hidden = false;
     label = "";
 }
-
+void ofxProgressBar::setWidth(int _w){
+    w=_w;
+}
 float ofxProgressBar::progress(){
     if(useSavedMax){
         return (float)(*value)/(float)savedMax;
@@ -100,15 +102,15 @@ void ofxProgressBar::draw(){
     if(!hidden){
         ofPushStyle();
         ofSetColor(fontColor);
-        font.drawString(label, labelPosition.x, labelPosition.y);
+//        font.drawString(label, labelPosition.x, labelPosition.y);
         
         ofSetColor(backgroundColor);
         ofFill();
-        ofRect(x, y, w, h);
+        ofDrawRectangle(x, y, w, h);
         
         ofSetColor(barColor);
         float width = ofClamp(progress() * (w-(2*borderSize)), 0, w-(2*borderSize));
-        ofRect(x+borderSize, y+borderSize, width, h-(2*borderSize));
+        ofDrawRectangle(x+borderSize, y+borderSize, width, h-(2*borderSize));
         ofPopStyle();
     }
 }
